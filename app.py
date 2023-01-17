@@ -114,3 +114,6 @@ def delete_video():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
+
+
+# github에 업데이트된 파일 push하는 방법 연습하기 위해 작성하는 주석!
