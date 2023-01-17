@@ -36,13 +36,23 @@ def page_post():
     page_list = list(db.pages.find({}, {'_id': False}))
     count = len(page_list) + 1
 
-    doc = {
-        'url': url_receive,
-        'title': title,
-        'image': image,
-        'desc': desc,
-        'num': count
-    }
+    if db.pages.find_one({'num': count}) is not None:
+        count = count + 1
+        doc = {
+            'url': url_receive,
+            'title': title,
+            'image': image,
+            'desc': desc,
+            'num': count
+        }
+    else:
+        doc = {
+            'url': url_receive,
+            'title': title,
+            'image': image,
+            'desc': desc,
+            'num': count
+        }
 
     db.pages.insert_one(doc)
 
@@ -82,12 +92,22 @@ def video_post():
     video_list = list(db.videos.find({}, {'_id': False}))
     count = len(video_list) + 1
 
-    doc = {
-        'url': url_receive,
-        'title': title,
-        'image': image,
-        'num': count
-    }
+    if db.videos.find_one({'num': count}) is not None:
+        count = count + 1
+        doc = {
+            'url': url_receive,
+            'title': title,
+            'image': image,
+            'num': count
+        }
+    else:
+        doc = {
+            'url': url_receive,
+            'title': title,
+            'image': image,
+            'num': count
+        }
+
 
     db.videos.insert_one(doc)
 
