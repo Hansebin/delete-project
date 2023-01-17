@@ -12,6 +12,8 @@ ca = certifi.where()
 client = MongoClient('mongodb+srv://test:sparta@cluster0.g8d0ssb.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca)
 db = client.dbsparta
 
+# DB연결과 크롤링 패키지 임포트!
+
 @app.route('/')
 def home():
     return render_template('index.html')
